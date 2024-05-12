@@ -1,9 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.DuoFynnu" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:navigationBarColor">@color/button_background</item>
+        <item name="android:statusBarColor">@color/button_background</item>
     </style>
 
     <style name="Theme.DuoFynnu" parent="Base.Theme.DuoFynnu" />
+    <style name="EditTextStyle">
+        <item name="hintTextColor">@color/gray</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">10dp</item>
+    </style>
 </resources>
