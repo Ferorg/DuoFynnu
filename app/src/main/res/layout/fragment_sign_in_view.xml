@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textSize="26dp"
-            android:text="Email"
+            android:text="@string/email"
             android:textColor="@color/text_color"
             android:layout_below="@id/signInId"/>
         <EditText
@@ -42,7 +42,7 @@
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="enter email"
+            android:hint="@string/enter_email"
             android:textColorHint="@color/text_color"
             />
 
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textSize="26dp"
-            android:text="Password"
+            android:text="@string/password"
             android:textColor="@color/text_color"
             android:layout_below="@id/emailEditView"/>
         <EditText
@@ -61,12 +61,13 @@
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="enter password"
+            android:hint="@string/enter_password"
             android:textColorHint="@color/text_color"
             />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/signInButton"
             android:layout_marginTop="22dp"
+            android:layout_marginBottom="10dp"
             android:layout_below="@id/passwordEditView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
