@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_authorization"
+    app:startDestination="@id/signInFragment">
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.duofynnu.presentation.sign.in.SignInView"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in_view">
+        <action
+            android:id="@+id/action_to_register"
+            app:destination="@id/signUpFragment" />
+<!--        <action android:id="@+id/action_to_home_page"-->
+<!--            app:destination="@id/homePageActivity"/>-->
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.duofynnu.presentation.sign.up.SignUpView"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_in_view">
+        <action
+            android:id="@+id/action_to_login"
+            app:destination="@id/signInFragment" />
+    </fragment>
+</navigation>
