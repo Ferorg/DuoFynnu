@@ -13,6 +13,9 @@
         android:theme="@style/Theme.DuoFynnu"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.sign.AuthorizationView"
+            android:exported="false" />
+        <activity
             android:name=".presentation.splash.SplashView"
             android:exported="false" />
         <activity
