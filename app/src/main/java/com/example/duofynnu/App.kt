@@ -1,4 +1,6 @@
 package com.example.duofynnu
 
-class App {
+import android.app.Application
+
+class App: Application() {
 }
