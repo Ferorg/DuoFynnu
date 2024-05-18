@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuTodo"
+        android:icon="@drawable/baseline_format_list_bulleted_24"
+        android:title="Todo List" />
+    <item
+        android:id="@+id/menuShopList"
+        android:icon="@drawable/baseline_view_list_24"
+        android:title="Shop list" />
+    <item
+        android:id="@+id/profileRoom"
+        android:icon="@drawable/baseline_view_list_24"
+        android:title="Room profile" />
+    <item
+        android:id="@+id/menuEvent"
+        android:icon="@drawable/baseline_calendar_month_24"
+        android:title="Event" />
+
+
+    <!--    <item android:id="@+id/menuEvent"-->
+    <!--        android:icon="@drawable/baseline_calendar_month_24"-->
+    <!--        android:title="Event"/>-->
+
+</menu>

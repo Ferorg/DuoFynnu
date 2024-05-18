@@ -10,7 +10,7 @@ class AuthorizationView : AppCompatActivity() {
     private lateinit var authorizationViewBinding: ActivityAuthorizationViewBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        authorizationViewBinding=ActivityAuthorizationViewBinding.inflate(layoutInflater)
+        authorizationViewBinding = ActivityAuthorizationViewBinding.inflate(layoutInflater)
         setContentView(authorizationViewBinding.root)
     }
 }

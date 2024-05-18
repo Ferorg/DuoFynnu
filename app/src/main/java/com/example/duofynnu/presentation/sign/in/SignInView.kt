@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -27,7 +26,6 @@ class SignInView : Fragment() {
     private lateinit var emailEditView: EditText
     private lateinit var passwordEditView: EditText
     private lateinit var signInButton:Button
-    private lateinit var signUpTextButton:TextView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,17 +41,17 @@ class SignInView : Fragment() {
         emailEditView=signInViewBinding.emailEditView
         passwordEditView=signInViewBinding.passwordEditView
         signInButton=signInViewBinding.signInButton
-        signUpTextButton=signInViewBinding.registerButtonView
     }
 
     private fun setUpViews() {
         signInButton.setOnClickListener {
-            viewModel.onSignInButtonClicked(
-                email = emailEditView.text.toString(),
-                password = passwordEditView.text.toString()
-            )
+//            viewModel.onSignInButtonClicked(
+//                email = emailEditView.text.toString(),
+//                password = passwordEditView.text.toString()
+//            )
+            onClickSignIn()
         }
-        signUpTextButton.setOnClickListener{
+            signInViewBinding.registerButtonView.setOnClickListener{
             onClickSignUp()
         }
     }
@@ -89,6 +87,6 @@ class SignInView : Fragment() {
         super.onDestroy()
     }
 
-    private fun onClickSignUp() {  findNavController().navigate(R.id.action_to_register)}
+    private fun onClickSignUp() {  findNavController().navigate(R.id.action_to_sign_up)}
 
 }

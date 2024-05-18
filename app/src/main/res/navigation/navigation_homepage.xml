@@ -4,15 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_homepage"
     app:startDestination="@id/profileFragment">
+    <action
+        android:id="@+id/exit_to_sign_in_view"
+        app:destination="@id/signInView" />
+    <action
+        android:id="@+id/action_to_profile_view"
+        app:destination="@id/profileFragment" />
+    <action
+        android:id="@+id/action_to_rooms_fragment"
+        app:destination="@id/roomsListFragment" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.duofynnu.presentation.homepage.profile.ProfileFragmentView"
         android:label="fragment_profile_view"
         tools:layout="@layout/fragment_profile_view">
+    </fragment>
+    <fragment
+        android:id="@+id/roomsListFragment"
+        android:name="com.example.duofynnu.presentation.homepage.rooms.RoomsView"
+        android:label="fragment_rooms_view"
+        tools:layout="@layout/fragment_rooms_view">
         <action
-            android:id="@+id/exit_to_sign_in_view"
-            app:destination="@id/signInView" />
-
+            android:id="@+id/action_to_add_room_fragment"
+            app:destination="@id/addRoomFragment" />
+        <action
+            android:id="@+id/action_to_connecting_room_fragment"
+            app:destination="@id/connectingRoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRoomFragment"
+        android:name="com.example.duofynnu.presentation.homepage.rooms.addrooms.AddRoomsView"
+        android:label="fragment_rooms_view"
+        tools:layout="@layout/fragment_add_rooms_view">
+        <action
+            android:id="@+id/action_to_rooms_fragment"
+            app:destination="@id/roomsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/connectingRoomFragment"
+        android:name="com.example.duofynnu.presentation.homepage.rooms.connectingroom.ConnectingRoomsView"
+        android:label="fragment_connecting_rooms_view"
+        tools:layout="@layout/fragment_connecting_rooms_view">
+        <action
+            android:id="@+id/action_to_rooms_fragment"
+            app:destination="@id/roomsListFragment" />
     </fragment>
     <activity android:id="@+id/signInView"
         android:name="com.example.duofynnu.presentation.sign.AuthorizationView"

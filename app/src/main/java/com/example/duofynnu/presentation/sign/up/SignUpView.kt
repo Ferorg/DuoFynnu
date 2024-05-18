@@ -8,44 +8,56 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.duofynnu.R
 import com.example.duofynnu.databinding.FragmentSignUpViewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SignUpView : Fragment() {
-    private var _fragmentSignUpViewBinding: FragmentSignUpViewBinding? = null
-    private val fragmentSignUpViewBinding = _fragmentSignUpViewBinding!!
-    private lateinit var emailEditView: EditText
-    private lateinit var passwordEditView: EditText
+    private var _signUpViewBinding: FragmentSignUpViewBinding? = null
+    private val signUpViewBinding get() = _signUpViewBinding!!
+    private val viewModel: SignUpViewModel by viewModels()
+    private lateinit var signUpEmailEditView: EditText
+    private lateinit var signUpPasswordEditView: EditText
     private lateinit var repeatPasswordEditView: EditText
     private lateinit var enterNameEditView: EditText
     private lateinit var signUpButton: Button
     private lateinit var signInButtonView: TextView
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _fragmentSignUpViewBinding =
-            FragmentSignUpViewBinding.inflate(layoutInflater, container, false)
-        val view = fragmentSignUpViewBinding.root
+        _signUpViewBinding = FragmentSignUpViewBinding.inflate(layoutInflater, container, false)
+        val view = signUpViewBinding.root
         initView()
+        onClick()
         return view
     }
 
     private fun initView() {
-        emailEditView = fragmentSignUpViewBinding.emailEditView
-        passwordEditView = fragmentSignUpViewBinding.passwordEditView
-        repeatPasswordEditView = fragmentSignUpViewBinding.repeatPasswordEditView
-        enterNameEditView = fragmentSignUpViewBinding.enterNameEditView
-        signUpButton = fragmentSignUpViewBinding.signUpButton
-        signInButtonView = fragmentSignUpViewBinding.signInButtonView
+        signUpEmailEditView = signUpViewBinding.signUpEmailEditView
+        signUpPasswordEditView = signUpViewBinding.signUpPasswordEditView
+        repeatPasswordEditView = signUpViewBinding.repeatPasswordEditView
+        enterNameEditView = signUpViewBinding.enterNameEditView
+        signUpButton = signUpViewBinding.signUpButton
+        signInButtonView = signUpViewBinding.signInButtonView
     }
 
+    private fun onClick() {
+        signUpButton.setOnClickListener {
+            findNavController().navigate(R.id.action_to_sign_in_fragment)
+        }
+        signInButtonView.setOnClickListener {
+            findNavController().navigate(R.id.action_to_sign_in_fragment)
+        }
+    }
 
     override fun onDestroy() {
-        _fragmentSignUpViewBinding = null
+        _signUpViewBinding = null
         super.onDestroy()
     }
+
+
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menuListRooms"
+        android:icon="@drawable/baseline_view_list_24"
+        android:title="Rooms" />
+    <item
+        android:id="@+id/menuProfile"
+        android:icon="@drawable/baseline_person_24"
+        android:title="Profile" />
+
+    <item android:id="@+id/emptyItem"
+        android:title=""/>
+    <item
+        android:id="@+id/menuAbout"
+        android:title="" />
+    <item
+        android:id="@+id/menuExit"
+        android:icon="@drawable/baseline_exit_to_app_24"
+        android:title="Exit" />
+
+</menu>

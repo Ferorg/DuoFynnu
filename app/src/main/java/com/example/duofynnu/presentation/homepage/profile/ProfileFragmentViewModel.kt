@@ -9,6 +9,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProfileFragmentViewModel@Inject constructor(
-    context: Application, private val signInUseCase: SignInUseCase
+    context: Application,
 ) : AndroidViewModel(context) {
 }
