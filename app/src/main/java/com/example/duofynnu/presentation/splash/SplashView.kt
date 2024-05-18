@@ -8,7 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.duofynnu.R
-import com.example.duofynnu.presentation.HomePageView
+import com.example.duofynnu.presentation.homepage.HomePageActivity
 import com.example.duofynnu.presentation.sign.AuthorizationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -27,7 +27,7 @@ class SplashView : AppCompatActivity(R.layout.activity_splash_view) {
                 viewModel.viewState.collect {
                     when (it) {
                         SplashViewState.Success -> {
-                            startActivity(Intent(this@SplashView, HomePageView::class.java))
+                            startActivity(Intent(this@SplashView, HomePageActivity::class.java))
                             finish()
                         }
 

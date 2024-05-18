@@ -36,6 +36,7 @@ class SignInView : Fragment() {
         val view = signInViewBinding.root
         initView()
         setUpViews()
+        observeEvents()
         return view
     }
     private fun initView(){
@@ -53,7 +54,7 @@ class SignInView : Fragment() {
             )
         }
         signUpTextButton.setOnClickListener{
-            onClickRegister()
+            onClickSignUp()
         }
     }
     private fun observeEvents() {
@@ -83,13 +84,11 @@ class SignInView : Fragment() {
         findNavController().navigate(R.id.action_to_home_page)
     }
 
-    private fun onClickRegister() {
-        findNavController().navigate(R.id.action_to_register)
-    }
-
     override fun onDestroy() {
         _signInViewBinding = null
         super.onDestroy()
     }
+
+    private fun onClickSignUp() {  findNavController().navigate(R.id.action_to_register)}
 
 }

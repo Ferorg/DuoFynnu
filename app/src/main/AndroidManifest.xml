@@ -21,14 +21,16 @@
             android:exported="false" />
         <activity
             android:name=".presentation.sign.AuthorizationView"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.splash.SplashView"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".presentation.splash.SplashView"
+            android:exported="false">
+
         </activity>
     </application>
 

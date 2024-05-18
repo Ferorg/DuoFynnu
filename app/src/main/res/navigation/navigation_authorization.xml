@@ -19,7 +19,7 @@
         android:id="@+id/signUpFragment"
         android:name="com.example.duofynnu.presentation.sign.up.SignUpView"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_in_view">
+        tools:layout="@layout/fragment_sign_up_view">
         <action
             android:id="@+id/action_to_login"
             app:destination="@id/signInFragment" />

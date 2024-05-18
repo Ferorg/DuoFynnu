@@ -17,7 +17,7 @@ class ProfileFragmentView : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _profileViewBinding=FragmentProfileViewBinding.inflate(layoutInflater)
+        _profileViewBinding=FragmentProfileViewBinding.inflate(layoutInflater,container,false)
         val view=profileViewBinding.root
         return view
     }

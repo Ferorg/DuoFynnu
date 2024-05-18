@@ -12,4 +12,5 @@
     <string name="password">Password</string>
     <string name="enter_email">enter email</string>
     <string name="email">Email</string>
+    <string name="enter_name">Enter Name</string>
 </resources>
