@@ -3,10 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.homepage.rooms.RoomsView">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/roomsContainer"
+    tools:context=".presentation.roomhomepage.roomprofile.RoomProfileView">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_room"/>
+        android:gravity="center"
+        android:text="ROOM PROFILE"
+        android:textColor="@color/text_color"
+        android:textSize="50dp"/>
+
 </FrameLayout>

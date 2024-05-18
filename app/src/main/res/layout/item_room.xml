@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:layout_height="200dp"
+    android:layout_margin="10dp"
+    android:gravity="center"
+    android:background="@color/rv_item_background">
+    <TextView
+        android:id="@+id/roomNameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26dp"
+        android:text="Name Room"
+        android:textColor="@color/text_color"/>
+
+</RelativeLayout>

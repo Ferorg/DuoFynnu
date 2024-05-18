@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileFragmentViewModel@Inject constructor(
+class ProfileFragmentViewModel @Inject constructor(
     context: Application,
 ) : AndroidViewModel(context) {
 }

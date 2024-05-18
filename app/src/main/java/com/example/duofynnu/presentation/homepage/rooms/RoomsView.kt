@@ -5,56 +5,84 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.duofynnu.R
+import com.example.duofynnu.databinding.FragmentRoomsViewBinding
+import com.example.duofynnu.domain.entity.Room
+import com.example.duofynnu.presentation.homepage.rooms.adapter.RoomsAdapter
+import com.example.duofynnu.presentation.util.ViewState
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RoomsView.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class RoomsView : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private var _fragmentRoomsViewBinding:FragmentRoomsViewBinding?=null
+    private val fragmentRoomsViewBinding get() = _fragmentRoomsViewBinding!!
+    private val viewModel:RoomsViewModel by viewModels()
+    private lateinit var adapter: RoomsAdapter
+    private lateinit var roomsView:RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rooms_view, container, false)
+    ): View{
+        _fragmentRoomsViewBinding=FragmentRoomsViewBinding.inflate(inflater,container,false)
+        val view=fragmentRoomsViewBinding.root
+        initRoomsRV()
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RoomsView.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RoomsView().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun initRoomsRV() {
+        roomsView=fragmentRoomsViewBinding.roomsContainer
+        roomsView.layoutManager=GridLayoutManager(context,2)
+        adapter= RoomsAdapter(
+            mutableListOf()
+        ){room->
+            actionToRoomHomePage(room)
+
+        }
+
+    }
+
+    private fun actionToRoomHomePage(room: Room) {
+
+    }
+    private fun observeRooms() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.viewState.collect {
+                    when (it) {
+                        is ViewState.Success -> {
+                            handleOnSuccess(it.data)
+                        }
+
+                        is ViewState.Loading -> {
+                            roomsView.visibility = View.GONE
+                        }
+
+                        is ViewState.Failure -> {
+                            Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
             }
+        }
+    }
+
+    private fun handleOnSuccess(rooms: List<Room>) {
+        adapter.setRooms(rooms)
+        roomsView.visibility = View.VISIBLE
+    }
+
+    override fun onDestroy() {
+        _fragmentRoomsViewBinding = null
+        super.onDestroy()
+
     }
 }

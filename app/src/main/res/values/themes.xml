@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="Base.Theme.DuoFynnu" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:colorBackground">@color/background</item>
         <item name="android:navigationBarColor">@color/button_background</item>
@@ -20,6 +21,7 @@
         <item name="android:statusBarColor">@color/button_background</item>
         <!-- Customize your theme here. -->
     </style>
+
     <style name="EditTextStyle">
         <item name="hintTextColor">@color/gray</item>
         <item name="android:textColor">@color/text_color</item>

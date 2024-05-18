@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_homepage"
-    app:startDestination="@id/profileFragment">
+    app:startDestination="@id/roomsListFragment">
     <action
         android:id="@+id/exit_to_sign_in_view"
         app:destination="@id/signInView" />
@@ -13,6 +13,8 @@
     <action
         android:id="@+id/action_to_rooms_fragment"
         app:destination="@id/roomsListFragment" />
+
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.duofynnu.presentation.homepage.profile.ProfileFragmentView"
@@ -30,6 +32,9 @@
         <action
             android:id="@+id/action_to_connecting_room_fragment"
             app:destination="@id/connectingRoomFragment" />
+        <action
+            android:id="@+id/action_to_room_home_page"
+            app:destination="@id/roomHomePage" />
     </fragment>
     <fragment
         android:id="@+id/addRoomFragment"
@@ -52,4 +57,7 @@
     <activity android:id="@+id/signInView"
         android:name="com.example.duofynnu.presentation.sign.AuthorizationView"
         tools:layout="@layout/activity_authorization_view"/>
+    <activity android:id="@+id/roomHomePage"
+        android:name="com.example.duofynnu.presentation.roomhomepage.RoomHomePageActivity"
+        tools:layout="@layout/activity_room_home_page"/>
 </navigation>

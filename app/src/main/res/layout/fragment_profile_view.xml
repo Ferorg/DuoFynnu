@@ -5,12 +5,103 @@
     android:layout_height="match_parent"
     tools:context=".presentation.homepage.profile.ProfileFragmentView">
 
-<Button
-    android:id="@+id/exitButton"
-    android:layout_gravity="center"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="EXIT"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp">
 
+        <ImageView
+            android:id="@+id/profileImgView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/img_profile" />
 
+        <TextView
+            android:id="@+id/nameProfileTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_toRightOf="@id/profileImgView"
+            android:gravity="center"
+            android:text="NAME"
+            android:textColor="@color/text_color"
+            android:textSize="26dp" />
+
+        <TextView
+            android:id="@+id/coinProfileTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameProfileTextView"
+            android:layout_margin="12dp"
+            android:layout_toRightOf="@id/profileImgView"
+            android:gravity="center"
+            android:text="COin"
+            android:textColor="@color/text_color"
+            android:textSize="26dp" />
+
+        <LinearLayout
+            android:id="@+id/editNameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileImgView"
+            android:layout_marginTop="26dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <EditText
+                android:id="@+id/editNameView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:hint="@string/edit_name"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_color"
+                android:textSize="26sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveNameButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:background="@color/button_background"
+                android:text="@string/save"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/editPasswordContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editNameContainer"
+            android:layout_marginTop="26dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <EditText
+                android:id="@+id/editPasswordView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:hint="@string/edit_password"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_color"
+                android:textSize="26sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/savePasswordButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:background="@color/button_background"
+                android:text="@string/save"
+                android:textColor="@color/text_color"
+                android:textSize="16dp" />
+        </LinearLayout>
+    </RelativeLayout>
 </FrameLayout>
