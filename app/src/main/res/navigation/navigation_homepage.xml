@@ -19,8 +19,7 @@
         android:id="@+id/profileFragment"
         android:name="com.example.duofynnu.presentation.homepage.profile.ProfileFragmentView"
         android:label="fragment_profile_view"
-        tools:layout="@layout/fragment_profile_view">
-    </fragment>
+        tools:layout="@layout/fragment_profile_view"></fragment>
     <fragment
         android:id="@+id/roomsListFragment"
         android:name="com.example.duofynnu.presentation.homepage.rooms.RoomsView"
@@ -53,11 +52,16 @@
         <action
             android:id="@+id/action_to_rooms_fragment"
             app:destination="@id/roomsListFragment" />
+        <action
+            android:id="@+id/action_to_rooms_homepage_fragment"
+            app:destination="@id/roomHomePage" />
     </fragment>
-    <activity android:id="@+id/signInView"
+    <activity
+        android:id="@+id/signInView"
         android:name="com.example.duofynnu.presentation.sign.AuthorizationView"
-        tools:layout="@layout/activity_authorization_view"/>
-    <activity android:id="@+id/roomHomePage"
+        tools:layout="@layout/activity_authorization_view" />
+    <activity
+        android:id="@+id/roomHomePage"
         android:name="com.example.duofynnu.presentation.roomhomepage.RoomHomePageActivity"
-        tools:layout="@layout/activity_room_home_page"/>
+        tools:layout="@layout/content_room_home_page" />
 </navigation>

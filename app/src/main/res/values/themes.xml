@@ -28,4 +28,13 @@
         <item name="android:textSize">20sp</item>
         <item name="android:padding">10dp</item>
     </style>
+
+    <style name="Theme.DuoFynnu.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.DuoFynnu.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.DuoFynnu.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

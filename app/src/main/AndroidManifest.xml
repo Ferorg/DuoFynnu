@@ -22,10 +22,6 @@
         android:theme="@style/Theme.DuoFynnu"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.roomhomepage.RoomHomePageActivity"
-            android:exported="false"
-            android:theme="@style/Theme.DuoFynnu" />
-        <activity
             android:name=".presentation.homepage.HomePageActivity"
             android:theme="@style/Theme.BottomActionBar" />
         <activity
