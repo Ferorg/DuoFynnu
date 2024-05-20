@@ -6,12 +6,150 @@
     tools:context=".presentation.roomhomepage.roomprofile.RoomProfileView">
 
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="ROOM PROFILE"
-        android:textColor="@color/text_color"
-        android:textSize="50dp"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/profileImgView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/img_profile" />
+
+        <TextView
+            android:id="@+id/nameRoomTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_toRightOf="@id/profileImgView"
+            android:gravity="center"
+            android:text="NAME"
+            android:textColor="@color/text_color"
+            android:textSize="26dp" />
+
+        <TextView
+            android:id="@+id/contentRoomTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameRoomTextView"
+            android:layout_margin="12dp"
+            android:layout_toRightOf="@id/profileImgView"
+            android:gravity="center"
+            android:text="Content"
+            android:textColor="@color/text_color"
+            android:textSize="26dp" />
+
+        <LinearLayout
+            android:id="@+id/editNameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileImgView"
+            android:layout_marginTop="26dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <EditText
+                android:id="@+id/editNameRoomView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:hint="@string/edit_name"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_color"
+                android:textSize="26sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveNameRoomButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:background="@color/button_background"
+                android:text="@string/save"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/editPasswordContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editNameContainer"
+            android:layout_marginTop="26dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <EditText
+                android:id="@+id/editRoomPasswordView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:hint="@string/edit_password"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_color"
+                android:textSize="26sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveRoomPasswordButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:background="@color/button_background"
+                android:text="@string/save"
+                android:textColor="@color/text_color"
+                android:textSize="16dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/editContentRoomContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editPasswordContainer"
+            android:layout_marginTop="26dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <EditText
+                android:id="@+id/editContentRoomView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:hint="Edit Content"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_color"
+                android:textSize="26sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveContentRoomButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="12dp"
+                android:background="@color/button_background"
+                android:text="@string/save"
+                android:textColor="@color/text_color"
+                android:textSize="16dp" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/participantsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_below="@id/editContentRoomContainer"
+            android:textColor="@color/text_color"
+            android:text="Participants List"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/participantsList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/participantsTextView"/>
+
+    </RelativeLayout>
 
 </FrameLayout>
