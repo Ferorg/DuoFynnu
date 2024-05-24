@@ -25,6 +25,7 @@
             android:id="@+id/action_to_sign_in_fragment"
             app:destination="@id/signInFragment" />
     </fragment>
+
     <activity
         android:id="@+id/homePageActivity"
         android:name="com.example.duofynnu.presentation.homepage.HomePageActivity"

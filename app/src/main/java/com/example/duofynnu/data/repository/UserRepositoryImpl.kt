@@ -1,4 +1,4 @@
-package com.example.duofynnu.data.api
+package com.example.duofynnu.data.repository
 
 import com.example.duofynnu.data.prefs.PrefsDataSource
 import com.example.duofynnu.domain.entity.UserProfile

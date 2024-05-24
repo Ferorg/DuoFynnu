@@ -1,6 +1,6 @@
 package com.example.duofynnu.di
 
-import com.example.duofynnu.data.api.UserRepositoryImpl
+import com.example.duofynnu.data.repository.UserRepositoryImpl
 import com.example.duofynnu.data.repository.SessionRepositoryImpl
 import com.example.duofynnu.domain.repository.SessionRepository
 import com.example.duofynnu.domain.repository.UserRepository

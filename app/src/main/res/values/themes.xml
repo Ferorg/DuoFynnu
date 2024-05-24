@@ -32,6 +32,9 @@
     <style name="Theme.DuoFynnu.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:navigationBarColor">@color/button_background</item>
+        <item name="android:statusBarColor">@color/button_background</item>
     </style>
 
     <style name="Theme.DuoFynnu.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

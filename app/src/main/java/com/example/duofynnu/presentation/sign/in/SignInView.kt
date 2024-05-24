@@ -30,7 +30,7 @@ class SignInView : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _signInViewBinding = FragmentSignInViewBinding.inflate(layoutInflater, container, false)
+        _signInViewBinding = FragmentSignInViewBinding.inflate(inflater, container, false)
         val view = signInViewBinding.root
         initView()
         setUpViews()
@@ -45,14 +45,13 @@ class SignInView : Fragment() {
 
     private fun setUpViews() {
         signInButton.setOnClickListener {
-//            viewModel.onSignInButtonClicked(
-//                email = emailEditView.text.toString(),
-//                password = passwordEditView.text.toString()
-//            )
-            onClickSignIn()
+            viewModel.onSignInButtonClicked(
+                email = emailEditView.text.toString(),
+                password = passwordEditView.text.toString()
+            )
         }
             signInViewBinding.registerButtonView.setOnClickListener{
-            onClickSignUp()
+           onClickSignUp()
         }
     }
     private fun observeEvents() {
@@ -61,7 +60,7 @@ class SignInView : Fragment() {
                 viewModel.viewState.collect {
                     when (it) {
                         is SignInViewState.Success -> {
-                            onClickSignIn()
+                            actionToSignInUser()
                         }
 
                         is SignInViewState.Loading -> {
@@ -78,7 +77,7 @@ class SignInView : Fragment() {
         }
     }
 
-    private fun onClickSignIn() {
+    private fun actionToSignInUser() {
         findNavController().navigate(R.id.action_to_home_page)
     }
 

@@ -8,17 +8,22 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.duofynnu.R
 import com.example.duofynnu.databinding.FragmentSignUpViewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SignUpView : Fragment() {
     private var _signUpViewBinding: FragmentSignUpViewBinding? = null
     private val signUpViewBinding get() = _signUpViewBinding!!
-    private val viewModel: SignUpViewModel by viewModels()
+    private val signUpViewModel: SignUpViewModel by viewModels()
     private lateinit var signUpEmailEditView: EditText
     private lateinit var signUpPasswordEditView: EditText
     private lateinit var repeatPasswordEditView: EditText
@@ -29,10 +34,12 @@ class SignUpView : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _signUpViewBinding = FragmentSignUpViewBinding.inflate(layoutInflater, container, false)
+        _signUpViewBinding = FragmentSignUpViewBinding.inflate(inflater, container, false)
         val view = signUpViewBinding.root
         initView()
-        onClick()
+        onClickSignUp()
+        onClickSignIn()
+ //       observeEvents()
         return view
     }
 
@@ -45,10 +52,46 @@ class SignUpView : Fragment() {
         signInButtonView = signUpViewBinding.signInButtonView
     }
 
-    private fun onClick() {
-        signUpButton.setOnClickListener {
-            findNavController().navigate(R.id.action_to_sign_in_fragment)
+    private fun observeEvents() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                signUpViewModel.viewState.collect {
+                    when (it) {
+                        is SignUpViewState.Success -> {
+                            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+                                //findNavController().navigate(R.id.action_to_sign_in_fragment)
+                        }
+
+                        is SignUpViewState.Loading -> {
+//                            signUpViewBinding.signUpButton.isEnabled = false
+                            Toast.makeText(context, "Loading", Toast.LENGTH_SHORT).show()
+                        }
+
+                        is SignUpViewState.Failure -> {
+//                            signUpViewBinding.signUpButton.isEnabled = true
+                        }
+
+                        is SignUpViewState.Idle -> {}
+                    }
+                }
+            }
         }
+    }
+
+    private fun onClickSignUp() {
+        signUpButton.setOnClickListener {
+            if ((signUpPasswordEditView.text.toString()) == repeatPasswordEditView.text.toString()) {
+                signUpViewModel.onSignUpButtonClicked(
+                    email = signUpEmailEditView.text.toString(),
+                    password = signUpPasswordEditView.text.toString(),
+                    username = enterNameEditView.text.toString()
+                )
+            }
+
+        }
+    }
+
+    private fun onClickSignIn() {
         signInButtonView.setOnClickListener {
             findNavController().navigate(R.id.action_to_sign_in_fragment)
         }

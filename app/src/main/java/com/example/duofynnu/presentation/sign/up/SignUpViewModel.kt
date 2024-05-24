@@ -5,14 +5,15 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.duofynnu.domain.usecase.SignInUseCase
 import com.example.duofynnu.domain.usecase.SignUpUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
-class SignUpViewModel @Inject constructor(
+@HiltViewModel
+class  SignUpViewModel @Inject constructor(
     context: Application,
     private val signUpUseCase: SignUpUseCase,
     private val signInUseCase: SignInUseCase

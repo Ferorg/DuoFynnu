@@ -15,12 +15,17 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.DuoFynnu"
         tools:targetApi="31">
+        <activity
+            android:name=".presentation.roomhomepage.RoomHomePageActivity"
+            android:exported="false"
+            android:label="@string/title_activity_room_home_page"
+            android:theme="@style/Theme.DuoFynnu.NoActionBar" />
         <activity
             android:name=".presentation.homepage.HomePageActivity"
             android:theme="@style/Theme.BottomActionBar" />
